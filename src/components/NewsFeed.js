@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import AddFeed from "./AddFeed";
 import DisplayFeed from "./DisplayFeed";
 class NewsFeed extends React.Component {
-  date = new Date().toLocaleDateString();
+  time = new Date().toLocaleDateString();
   modifiedDate =
     this.time.slice(2, 4) + this.time.slice(0, 2) + this.time.slice(4, 8);
 
