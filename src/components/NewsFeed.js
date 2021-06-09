@@ -3,7 +3,9 @@ import { v4 as uuidv4 } from "uuid";
 import AddFeed from "./AddFeed";
 import DisplayFeed from "./DisplayFeed";
 class NewsFeed extends React.Component {
-  time = new Date().toLocaleDateString();
+  date = new Date().toLocaleDateString();
+  modifiedDate =
+    this.time.slice(2, 4) + this.time.slice(0, 2) + this.time.slice(4, 8);
 
   constructor() {
     super();
@@ -15,20 +17,20 @@ class NewsFeed extends React.Component {
           description:
             "Mumbai Rains LIVE: Several low-lying areas inundated as Monsoon brings heavy showers; local train services hit",
           likes: 0,
-          date: this.time,
+          date: this.modifiedDate,
         },
         {
           id: uuidv4(),
           description:
             "Woman with HIV carries Covid-19 infection for 216 days, develops 32 virus mutations inside her body",
           likes: 0,
-          date: this.time,
+          date: this.modifiedDate,
         },
         {
           id: uuidv4(),
           description: "Support ayurvedic medicine...",
           likes: 0,
-          date: this.time,
+          date: this.modifiedDate,
         },
       ],
     };
@@ -40,7 +42,7 @@ class NewsFeed extends React.Component {
       id: uuidv4(),
       description: newFeed,
       likes: 0,
-      date: this.time,
+      date: this.modifiedDate,
     };
     this.setState({
       newsFeeds: [tempFeed, ...[...this.state.newsFeeds]],
@@ -72,6 +74,7 @@ class NewsFeed extends React.Component {
 
   //includes mainly two components , addFeed and displayFeed
   render() {
+    console.log(this.date);
     return (
       <div>
         <AddFeed newsFeeds={this.state.newsFeeds} addFeed={this.addFeed} />
